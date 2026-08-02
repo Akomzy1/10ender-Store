@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FREE — Quit Porn in 90 Days | The 90-Day Battle Plan</title>
+<meta name="description" content="A structured 90-day battle plan for Christian men. Combines brain science, proven habit tools, and faith — so you stop fighting on willpower and start fighting with a system.">
+<meta name="robots" content="index,follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="FREE — Quit Porn in 90 Days">
+<meta property="og:description" content="It's not a willpower problem. It's a wiring problem — and wiring can be changed.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   FREE — Sales Page
+   Edit checkout link + price in the CONFIG block at the bottom
+   of this file (search for "CONFIG").
+   ============================================================ */
+
+:root{
+  --accent:      #E8622C;
+  --accent-soft: #F0824F;
+  --on-accent:   #10151C;
+
+  --bg:      #0B0F14;
+  --bg-alt:  #080B0F;
+  --card:    #0E141B;
+
+  --line:        #161C25;
+  --line-card:   #1D2530;
+  --line-strong: #232C38;
+
+  --ink:     #F2EEE6;  /* headings */
+  --ink-body:#E8E4DC;  /* base text */
+  --ink-2:   #C6CCD5;
+  --ink-3:   #A9B2BE;
+  --ink-4:   #8B95A3;
+  --muted:   #7B8492;
+  --dim:     #5B6573;
+  --legal:   #525C69;
+
+  --pad-y: 88px;
+  --pad-x: 24px;
+
+  --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --body:    'Barlow', system-ui, -apple-system, sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink-body);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+h1,h2,h3,p{ margin:0; }
+img,svg{ max-width:100%; }
+
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ color:var(--accent-soft); }
+::selection{ background:var(--accent); color:var(--bg); }
+
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
+/* ---------- Layout ---------- */
+
+.section{ padding:var(--pad-y) var(--pad-x); }
+.section--alt{
+  background:var(--bg-alt);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.section--glow-top{
+  position:relative;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(232,98,44,.14), rgba(11,15,20,0) 60%),
+    var(--bg);
+}
+.section--glow-bottom{
+  position:relative;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% 110%, rgba(232,98,44,.12), rgba(11,15,20,0) 60%),
+    var(--bg);
+}
+
+.wrap{ max-width:640px; margin:0 auto; }
+.wrap--narrow{ max-width:560px; }
+.wrap--hero{ max-width:720px; }
+.wrap--faq{ max-width:600px; }
+
+.stack{ display:flex; flex-direction:column; }
+.stack > * + *{ margin-top:var(--gap,24px); }
+
+.center{ text-align:center; }
+
+/* ---------- Type ---------- */
+
+.display{
+  font-family:var(--display);
+  font-weight:700;
+  text-transform:uppercase;
+  line-height:1;
+  color:var(--ink);
+  letter-spacing:.01em;
+}
+.h1{ font-size:clamp(46px,11vw,92px); line-height:.95; text-wrap:balance; }
+.h2{ font-size:clamp(34px,7vw,48px); }
+.h2--sm{ font-size:30px; line-height:1.05; }
+.h3{ font-family:var(--display); font-weight:600; text-transform:uppercase; font-size:24px; color:var(--ink); }
+
+.accent{ color:var(--accent); }
+.lede{ font-size:19px; line-height:1.6; color:var(--ink-3); text-wrap:pretty; }
+.body-2{ font-size:18px; line-height:1.65; color:var(--ink-3); text-wrap:pretty; }
+.small{ font-size:15px; color:var(--ink-4); line-height:1.5; }
+.micro{ font-size:14px; color:var(--muted); letter-spacing:.02em; }
+
+.eyebrow{
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  font-family:var(--display); font-weight:600; font-size:15px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--accent);
+}
+.eyebrow span:first-child,
+.eyebrow span:last-child{
+  display:block; width:28px; height:1px; background:var(--accent); opacity:.6; flex:none;
+}
+.eyebrow__text{ max-width:22em; }
+
+/* ---------- Button ---------- */
+
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:var(--on-accent);
+  font-family:var(--display);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:22px;
+  padding:18px 44px;
+  border-radius:8px;
+  box-shadow:0 10px 32px rgba(232,98,44,.35);
+  transition:transform .15s ease, filter .15s ease;
+}
+.btn:hover{ color:var(--on-accent); filter:brightness(1.08); transform:translateY(-1px); }
+.btn:active{ transform:translateY(0); }
+.btn--sm{ font-size:20px; padding:16px 38px; box-shadow:0 10px 32px rgba(232,98,44,.3); }
+.btn--wide{ padding:18px 48px; }
+
+.cta-group{ display:flex; flex-direction:column; align-items:center; gap:12px; }
+
+/* ---------- Hero ---------- */
+
+.hero{ padding:88px var(--pad-x) 80px; }
+.hero__inner{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:28px; }
+.hero .lede{ max-width:34em; }
+
+/* ---------- Pain ---------- */
+
+.pain{ --gap:26px; font-size:19px; line-height:1.55; color:var(--ink-2); }
+.pain em{ color:var(--ink-body); font-style:italic; }
+.pain__open{
+  font-family:var(--display); font-weight:600; font-size:30px;
+  color:var(--ink); text-transform:uppercase; letter-spacing:.03em; line-height:1.1;
+}
+
+.callout{
+  margin-top:18px;
+  border:1px solid rgba(232,98,44,.35);
+  background:rgba(232,98,44,.06);
+  border-radius:10px;
+  padding:28px 26px;
+}
+.callout p{
+  font-family:var(--display); font-weight:600; font-size:26px;
+  line-height:1.25; color:var(--ink); text-wrap:balance;
+}
+
+/* ---------- Credibility chips ---------- */
+
+.chips{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+  margin-top:8px;
+}
+.chip{
+  border:1px solid var(--line-card);
+  border-radius:8px;
+  padding:14px 16px;
+  font-size:15px;
+  color:var(--ink-2);
+}
+.chip b{ color:var(--accent); font-weight:600; }
+
+/* ---------- Failure cards ---------- */
+
+.cards{ display:flex; flex-direction:column; gap:14px; }
+.card{
+  background:var(--card);
+  border:1px solid var(--line-card);
+  border-radius:10px;
+  padding:26px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.card__num{
+  font-family:var(--display); font-weight:700; font-size:14px;
+  letter-spacing:.16em; color:var(--dim);
+}
+.card p{ font-size:16px; line-height:1.6; color:var(--ink-3); }
+
+/* ---------- Curriculum ---------- */
+
+.phase{ display:flex; flex-direction:column; gap:16px; }
+.phase__head{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  border-bottom:1px solid var(--line-card);
+  padding-bottom:10px;
+}
+.phase__label{
+  font-family:var(--display); font-weight:700; font-size:15px;
+  letter-spacing:.14em; color:var(--accent); text-transform:uppercase;
+}
+.phase__name{
+  font-family:var(--display); font-weight:600; font-size:20px;
+  color:var(--ink); text-transform:uppercase;
+}
+.module{ display:flex; gap:16px; align-items:baseline; }
+.module__num{
+  font-family:var(--display); font-weight:700; color:var(--dim);
+  font-size:15px; min-width:24px; flex:none;
+}
+.module p{ font-size:17px; line-height:1.5; color:var(--ink-2); }
+
+/* ---------- Offer ---------- */
+
+.book{
+  width:180px; height:252px;
+  border-radius:6px 12px 12px 6px;
+  background:linear-gradient(155deg,#141B24 0%,#0D1319 70%);
+  border:1px solid var(--line-strong);
+  border-left:6px solid var(--accent);
+  box-shadow:0 24px 48px rgba(0,0,0,.5);
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:22px 18px;
+  transform:rotate(-2deg);
+  align-self:center;
+}
+.book__kicker{
+  font-family:var(--display); font-weight:600; font-size:11px;
+  letter-spacing:.2em; color:var(--muted); text-transform:uppercase; line-height:1.3;
+}
+.book__title{
+  font-family:var(--display); font-weight:700; font-size:64px;
+  line-height:.9; color:var(--ink); letter-spacing:.02em;
+}
+.book__sub{
+  font-family:var(--display); font-weight:600; font-size:12px;
+  letter-spacing:.16em; color:var(--accent); text-transform:uppercase;
+}
+
+.deliverables{ width:100%; display:flex; flex-direction:column; gap:12px; }
+.deliverable{
+  display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+  background:var(--card);
+  border:1px solid var(--line-card);
+  border-radius:10px;
+  padding:20px 22px;
+}
+.deliverable__name{ font-weight:600; font-size:17px; color:var(--ink); display:block; }
+.deliverable__value{
+  font-family:var(--display); font-weight:600; color:var(--muted); white-space:nowrap;
+}
+
+.price-line{ font-size:17px; color:var(--ink-4); }
+.price-line s{ color:var(--dim); }
+.price-line .price{
+  font-family:var(--display); font-weight:700; font-size:30px;
+  color:var(--ink); vertical-align:-2px;
+}
+
+/* ---------- Testimonials ---------- */
+
+.quotes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
+}
+.quote{
+  background:var(--card);
+  border:1px solid var(--line-card);
+  border-radius:10px;
+  padding:24px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.quote__mark{
+  color:var(--accent); font-family:var(--display);
+  font-size:32px; line-height:.5; font-weight:700;
+}
+.quote p{ font-size:16px; line-height:1.6; color:var(--ink-2); font-style:italic; }
+.quote cite{ font-size:14px; color:var(--muted); font-weight:600; font-style:normal; }
+
+/* ---------- Guarantee ---------- */
+
+.guarantee{
+  border:1px solid rgba(232,98,44,.35);
+  background:linear-gradient(180deg,rgba(232,98,44,.08),rgba(232,98,44,.02));
+  border-radius:12px;
+  padding:40px 32px;
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+  text-align:center;
+}
+.guarantee p{ font-size:17px; line-height:1.65; color:var(--ink-2); text-wrap:pretty; }
+
+/* ---------- FAQ ---------- */
+
+.faq{ display:flex; flex-direction:column; border-top:1px solid var(--line-card); }
+.faq__item{ border-bottom:1px solid var(--line-card); }
+.faq__q{
+  all:unset;
+  box-sizing:border-box;
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  width:100%;
+  padding:20px 4px;
+  cursor:pointer;
+  font-family:var(--body); font-weight:600; font-size:17px; color:var(--ink-body);
+}
+.faq__q:hover{ color:var(--ink); }
+.faq__icon{
+  color:var(--accent); font-family:var(--display);
+  font-size:24px; font-weight:600; flex:none;
+  transition:transform .2s ease;
+}
+.faq__q[aria-expanded="true"] .faq__icon{ transform:rotate(45deg); }
+.faq__panel{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .28s ease;
+}
+.faq__q[aria-expanded="true"] + .faq__panel{ grid-template-rows:1fr; }
+.faq__panel > div{ overflow:hidden; }
+.faq__panel p{
+  padding:0 4px 20px;
+  font-size:16px; line-height:1.65; color:var(--ink-3);
+}
+
+/* ---------- Final CTA ---------- */
+
+.final{ padding:100px var(--pad-x) 120px; }
+.final__inner{ display:flex; flex-direction:column; align-items:center; gap:26px; text-align:center; }
+.final .h2{ font-size:clamp(38px,9vw,64px); text-wrap:balance; }
+.final p.lede{ max-width:30em; font-size:18px; }
+.price-line--lg .price{ font-size:32px; vertical-align:-3px; }
+
+.legal{
+  margin-top:28px;
+  max-width:42em;
+  font-size:12px; line-height:1.6; color:var(--legal);
+}
+
+/* ---------- Sticky buy bar ---------- */
+
+.buybar{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  background:rgba(14,20,27,.96);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-top:1px solid var(--line-strong);
+  padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  transform:translateY(110%);
+  transition:transform .35s ease;
+}
+.buybar.is-visible{ transform:translateY(0); }
+.buybar__meta{ display:flex; flex-direction:column; line-height:1.2; }
+.buybar__label{
+  font-family:var(--display); font-weight:600; font-size:14px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-4);
+}
+.buybar__price{ font-family:var(--display); font-weight:700; font-size:22px; color:var(--ink); }
+.buybar .btn{
+  font-size:18px; padding:12px 28px; box-shadow:none; letter-spacing:.05em;
+}
+.buybar .btn:hover{ transform:none; }
+
+/* ---------- Scroll reveal ---------- */
+
+[data-reveal]{ opacity:1; }
+.reveal-hidden{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+  .reveal-hidden{ opacity:1; transform:none; }
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width:520px){
+  :root{ --pad-y:64px; --pad-x:20px; }
+  .btn{ font-size:20px; padding:16px 28px; width:100%; text-align:center; }
+  .buybar{ gap:12px; padding-left:14px; padding-right:14px; }
+  .buybar .btn{ width:auto; font-size:16px; padding:12px 20px; }
+  .deliverable{ flex-direction:column; gap:8px; }
+  .final{ padding-bottom:140px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================== HERO ============================== -->
+<section class="section hero section--glow-top" id="hero">
+  <div class="wrap wrap--hero hero__inner">
+    <p class="eyebrow">
+      <span></span>
+      <span class="eyebrow__text">For Christian men who are done making promises they can't keep</span>
+      <span></span>
+    </p>
+
+    <h1 class="display h1">Quit porn in <span class="accent">90 days</span> — even if you've failed a hundred times before</h1>
+
+    <p class="lede">This "Battle Plan" is a structured 90-day battle plan that combines brain science, proven habit tools, and your faith — so you stop fighting on willpower and start fighting with a system.</p>
+
+    <div class="cta-group">
+      <a class="btn" data-checkout href="#">Get the Battle Plan — <span data-price>$27</span></a>
+      <span class="micro">Instant download&nbsp;&nbsp;•&nbsp;&nbsp;Read on any device</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAIN ============================== -->
+<section class="section section--alt">
+  <div class="wrap wrap--narrow stack pain" data-reveal>
+    <p class="pain__open">1:47 a.m. Again.</p>
+    <p>You told yourself tonight would be different. It wasn't.</p>
+    <p>You closed the laptop and felt that same drop in your chest. The one you know too well.</p>
+    <p>Tomorrow you'll shower it off. Go to work. Act normal.</p>
+    <p>You'll pray the same prayer you've prayed a hundred times — and part of you won't believe it anymore.</p>
+    <p>You wonder what this is doing to you. Whether you'll carry it into a marriage you don't even have yet. Whether she'll be able to tell.</p>
+    <p>You look around at the men in your church and think: <em>it's just me.</em></p>
+    <p>It isn't. Not even close.</p>
+
+    <div class="callout">
+      <p>It's not a willpower problem. It's a <span class="accent">wiring problem</span> — and wiring can be changed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= REFRAME + CREDIBILITY ==================== -->
+<section class="section">
+  <div class="wrap wrap--narrow stack" style="--gap:22px" data-reveal>
+    <h2 class="display h2">You're not broken.</h2>
+
+    <p class="body-2">Your brain did exactly what brains do: it repeated what got rewarded, and built a pathway. Every failed quit attempt wasn't proof you're weak — it was proof you were fighting wiring with wishes.</p>
+
+    <p class="body-2">FREE is built on the same evidence-based tools used in modern behavior change — anchored in spiritual accountability. No miracle claims. No vague "try harder." A plan.</p>
+
+    <div class="chips">
+      <div class="chip"><b>CBT-based</b> thought tools</div>
+      <div class="chip"><b>Urge surfing</b> — ride it out, don't wrestle it</div>
+      <div class="chip"><b>Habit-loop science</b> — cue, routine, reward</div>
+      <div class="chip"><b>Identity-based habits</b> + spiritual accountability</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MECHANISM =========================== -->
+<section class="section section--alt">
+  <div class="wrap stack" style="--gap:36px">
+    <h2 class="display h2 center" data-reveal>Why everything you tried <span class="accent">failed</span></h2>
+
+    <div class="cards">
+      <div class="card" data-reveal>
+        <span class="card__num">01</span>
+        <h3 class="h3">Willpower fails</h3>
+        <p>Willpower is a battery — and it's empty at 1 a.m., exactly when the fight starts. You've been bringing a draining resource to a recurring war.</p>
+      </div>
+      <div class="card" data-reveal>
+        <span class="card__num">02</span>
+        <h3 class="h3">Filters alone fail</h3>
+        <p>A filter blocks a screen. It doesn't change the appetite. You've already proven you'll find a way around anything — because the problem was never access.</p>
+      </div>
+      <div class="card" data-reveal>
+        <span class="card__num">03</span>
+        <h3 class="h3">Vague accountability fails</h3>
+        <p>"Keep me accountable, man" turns into weekly confession with zero structure. Confessing a fall isn't a plan to prevent the next one.</p>
+      </div>
+    </div>
+
+    <p class="lede center" style="max-width:32em;align-self:center;color:var(--ink-2)" data-reveal>The <strong style="color:var(--ink)">90-Day Battle Plan</strong> replaces all three with a system: daily structure that doesn't run on willpower, rewiring of the pattern underneath, and accountability with an actual script.</p>
+  </div>
+</section>
+
+<!-- =========================== WHAT'S INSIDE ======================== -->
+<section class="section">
+  <div class="wrap stack" style="--gap:40px">
+
+    <div class="stack center" style="--gap:12px" data-reveal>
+      <h2 class="display h2">The 90-day plan, mapped</h2>
+      <p style="font-size:17px;color:var(--muted)">Ten modules. Three phases. One fight, fought in order.</p>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="phase__head">
+        <span class="phase__label">Phase 1 · Weeks 1–2</span>
+        <span class="phase__name">Understand the enemy</span>
+      </div>
+      <div class="module"><span class="module__num">01</span><p>Why your brain keeps choosing the thing you hate — and why that's good news</p></div>
+      <div class="module"><span class="module__num">02</span><p>Map your personal trigger pattern in one evening</p></div>
+      <div class="module"><span class="module__num">03</span><p>The identity shift that makes quitting feel like defense, not deprivation</p></div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="phase__head">
+        <span class="phase__label">Phase 2 · Weeks 3–8</span>
+        <span class="phase__name">Rewire</span>
+      </div>
+      <div class="module"><span class="module__num">04</span><p>The 90-second urge protocol that works when willpower is gone</p></div>
+      <div class="module"><span class="module__num">05</span><p>Rebuild the habit loop so the old cue fires a new routine</p></div>
+      <div class="module"><span class="module__num">06</span><p>Kill the escalation cycle — dopamine, novelty, and how to reset both</p></div>
+      <div class="module"><span class="module__num">07</span><p>Design your evenings — the three hours where most battles are lost</p></div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="phase__head">
+        <span class="phase__label">Phase 3 · Weeks 9–12</span>
+        <span class="phase__name">Fortify</span>
+      </div>
+      <div class="module"><span class="module__num">08</span><p>Build accountability that actually changes behavior — scripts included</p></div>
+      <div class="module"><span class="module__num">09</span><p>Handle a slip in 24 hours instead of losing three weeks to shame</p></div>
+      <div class="module"><span class="module__num">10</span><p>Life after day 90 — becoming a man who doesn't need to be watched</p></div>
+    </div>
+
+    <div style="display:flex;justify-content:center" data-reveal>
+      <a class="btn btn--sm" data-checkout href="#">Start the 90 days — <span data-price>$27</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OFFER STACK ========================= -->
+<section class="section section--alt">
+  <div class="wrap stack" style="--gap:36px;align-items:center">
+
+    <div class="book" data-reveal aria-hidden="true">
+      <span class="book__kicker">The 90-day battle plan</span>
+      <span class="book__title">FREE</span>
+      <span class="book__sub">Quit porn for good</span>
+    </div>
+
+    <h2 class="display h2 center" data-reveal>Everything you get</h2>
+
+    <div class="deliverables" data-reveal>
+      <div class="deliverable">
+        <div>
+          <span class="deliverable__name">The complete ebook</span>
+          <span class="small">All 10 modules. Built to be read in a sitting and worked for 90 days.</span>
+        </div>
+        <span class="deliverable__value">$37 value</span>
+      </div>
+      <div class="deliverable">
+        <div>
+          <span class="deliverable__name">90-day tracker &amp; workbook</span>
+          <span class="small">One page a day. Checkboxes, not journaling homework.</span>
+        </div>
+        <span class="deliverable__value">$19 value</span>
+      </div>
+      <div class="deliverable">
+        <div>
+          <span class="deliverable__name">Urge-emergency card</span>
+          <span class="small">A wallet-size protocol for the 90 seconds that matter most.</span>
+        </div>
+        <span class="deliverable__value">$9 value</span>
+      </div>
+      <div class="deliverable">
+        <div>
+          <span class="deliverable__name">Accountability-partner scripts</span>
+          <span class="small">Word-for-word ways to ask, set rules, and check in — without the awkwardness.</span>
+        </div>
+        <span class="deliverable__value">$12 value</span>
+      </div>
+      <div class="deliverable">
+        <div>
+          <span class="deliverable__name">Relapse-recovery protocol</span>
+          <span class="small">The exact first 24 hours after a slip — so a bad night doesn't become a bad month.</span>
+        </div>
+        <span class="deliverable__value">$14 value</span>
+      </div>
+    </div>
+
+    <div class="cta-group" style="gap:14px" data-reveal>
+      <p class="price-line">Total value <s>$91</s> &nbsp;·&nbsp; today <span class="price" data-price>$27</span></p>
+      <a class="btn" data-checkout href="#">Get everything — <span data-price>$27</span></a>
+      <span class="micro">Instant download&nbsp;&nbsp;•&nbsp;&nbsp;30-day guarantee</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== TESTIMONIALS ========================= -->
+<!-- TODO: replace the four placeholders below with real quotes.
+     Keep them one sentence, result-first, first name + initial + age. -->
+<section class="section">
+  <div class="wrap stack" style="--gap:32px">
+    <h2 class="display h2 center" data-reveal>Men who fought this fight</h2>
+
+    <div class="quotes" data-reveal>
+      <blockquote class="quote">
+        <span class="quote__mark">"</span>
+        <p>[TESTIMONIAL 1 — one-sentence result, in his own words]</p>
+        <cite>— [First name L., age]</cite>
+      </blockquote>
+      <blockquote class="quote">
+        <span class="quote__mark">"</span>
+        <p>[TESTIMONIAL 2 — one-sentence result, in his own words]</p>
+        <cite>— [First name L., age]</cite>
+      </blockquote>
+      <blockquote class="quote">
+        <span class="quote__mark">"</span>
+        <p>[TESTIMONIAL 3 — one-sentence result, in his own words]</p>
+        <cite>— [First name L., age]</cite>
+      </blockquote>
+      <blockquote class="quote">
+        <span class="quote__mark">"</span>
+        <p>[TESTIMONIAL 4 — one-sentence result, in his own words]</p>
+        <cite>— [First name L., age]</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GUARANTEE =========================== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap wrap--narrow guarantee" data-reveal>
+    <svg width="52" height="60" viewBox="0 0 52 60" fill="none" aria-hidden="true">
+      <path d="M26 2 L48 10 V28 C48 44 38 54 26 58 C14 54 4 44 4 28 V10 Z" stroke="#E8622C" stroke-width="2.5" fill="rgba(232,98,44,.08)"/>
+      <path d="M17 29 L23.5 36 L36 22" stroke="#E8622C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <h2 class="display h2--sm">The 30-day guarantee</h2>
+    <p>Read it. Work the first 30 days. If this doesn't change <em>how you fight</em> — not just how you feel — email me and I'll refund every cent. Keep everything.</p>
+  </div>
+</section>
+
+<!-- =============================== FAQ ============================== -->
+<section class="section section--alt">
+  <div class="wrap wrap--faq stack" style="--gap:28px">
+    <h2 class="display h2 center" data-reveal>Straight answers</h2>
+
+    <div class="faq" data-reveal>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-0">
+          Is this just religious preaching?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-0" role="region">
+          <div><p>No. Faith is the foundation, but the method is behavioral science. Nothing here asks you to check your brain at the door — the science does the heavy lifting; your faith gives it a reason.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-1">
+          I've relapsed for years. Will this actually work for me?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-1" role="region">
+          <div><p>The plan assumes you've failed before — that's who it's written for. Past relapses are data: they show your pattern, and the system is built around your pattern, not a generic streak counter. There's also a protocol for slips, so one bad night doesn't erase your progress.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-2">
+          Is it discreet?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-2" role="region">
+          <div><p>Yes. Nothing explicit inside — no graphic descriptions, no crude language. It reads like a training manual. The download is a plain file on your device; the billing descriptor depends on the checkout platform you buy through.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-3">
+          How is this different from a filter app?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-3" role="region">
+          <div><p>A filter manages access. This changes the wiring. Use a filter too if you want — the plan shows where it fits — but a fence isn't a cure, and you already know how to climb fences.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-4">
+          Do I need an accountability partner?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-4" role="region">
+          <div><p>It's stronger with one, and the included scripts make asking easy. But the core 90-day plan works solo — accountability is one weapon, not the whole armory.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false" aria-controls="faq-5">
+          What format is it?
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__panel" id="faq-5" role="region">
+          <div><p>PDF and EPUB, delivered instantly. Read on your phone, tablet, Kindle, or computer. The tracker and urge card are printable PDFs.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA =========================== -->
+<section class="section final section--glow-bottom">
+  <div class="wrap final__inner" data-reveal>
+    <h2 class="display h2">90 days from now you'll either be <span class="accent">free</span> — or exactly where you are tonight</h2>
+
+    <p class="lede">Same screens. Same 1 a.m. Same prayer you've stopped believing. Or day 90 — clean, clear-headed, and fighting with a plan. That's the whole choice.</p>
+
+    <div class="cta-group">
+      <p class="price-line price-line--lg"><s>$91</s> &nbsp;·&nbsp; <span class="price" data-price>$27</span></p>
+      <a class="btn btn--wide" data-checkout href="#">Start day one tonight — <span data-price>$27</span></a>
+      <span class="micro">30-day money-back guarantee&nbsp;&nbsp;•&nbsp;&nbsp;Instant download</span>
+    </div>
+
+    <p class="legal">FREE is educational material, not medical or psychological treatment, and makes no clinical claims. If you're struggling with compulsive sexual behavior, consider speaking with a licensed counselor or therapist. © 2026 FREE. All rights reserved.</p>
+  </div>
+</section>
+
+<!-- ========================= STICKY BUY BAR ========================= -->
+<div class="buybar" id="buybar">
+  <div class="buybar__meta">
+    <span class="buybar__label">The 90-day battle plan</span>
+    <span class="buybar__price" data-price>$27</span>
+  </div>
+  <a class="btn" data-checkout href="#">Get the Battle Plan</a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — edit these two lines and you're live.
+   ============================================================ */
+var CONFIG = {
+  // Your Gumroad / Lemon Squeezy / Payhip / Stripe checkout link:
+  checkoutUrl: '#',
+
+  // Displayed price. Written into every CTA and the sticky bar:
+  price: '$27',
+
+  // Set to false to hide the sticky buy bar entirely:
+  stickyBar: true,
+
+  // Accent color. Also change --accent in the CSS if you edit this:
+  accent: '#E8622C'
+};
+
+(function () {
+  'use strict';
+
+  /* ---- Apply config ---- */
+  document.documentElement.style.setProperty('--accent', CONFIG.accent);
+
+  document.querySelectorAll('[data-checkout]').forEach(function (a) {
+    a.href = CONFIG.checkoutUrl;
+    if (CONFIG.checkoutUrl !== '#' && !/^#|^\//.test(CONFIG.checkoutUrl)) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+
+  document.querySelectorAll('[data-price]').forEach(function (el) {
+    el.textContent = CONFIG.price;
+  });
+
+  /* ---- FAQ accordion (one open at a time) ---- */
+  var questions = Array.prototype.slice.call(document.querySelectorAll('.faq__q'));
+  questions.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var wasOpen = btn.getAttribute('aria-expanded') === 'true';
+      questions.forEach(function (other) {
+        other.setAttribute('aria-expanded', 'false');
+        other.querySelector('.faq__icon').textContent = '+';
+      });
+      if (!wasOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.querySelector('.faq__icon').textContent = '–';
+      }
+    });
+  });
+
+  /* ---- Sticky buy bar ---- */
+  var bar = document.getElementById('buybar');
+  if (!CONFIG.stickyBar) {
+    bar.remove();
+  } else {
+    var hero = document.getElementById('hero');
+    var visible = false;
+    var onScroll = function () {
+      var past = window.scrollY > (hero ? hero.offsetHeight - 60 : 600);
+      if (past !== visible) {
+        visible = past;
+        bar.classList.toggle('is-visible', past);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---- Scroll reveal (only for content below the fold at load) ---- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('reveal-hidden');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
+        el.classList.add('reveal-hidden');
+        io.observe(el);
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
