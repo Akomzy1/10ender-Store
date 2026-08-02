@@ -12,3 +12,9 @@ $RECYCLE.BIN/
 
 # Logs
 *.log
+
+# Node / HyperFrames video project
+node_modules/
+videos/*/renders/
+videos/*/snapshots/
+videos/*/.hyperframes/
