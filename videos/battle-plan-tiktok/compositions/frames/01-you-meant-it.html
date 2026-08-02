@@ -1,0 +1,129 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-900.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      font-style: normal;
+      font-weight: 500;
+      font-display: block;
+      src: url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2");
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    /* Full-bleed ground rides on a clip layer, never on #root. */
+    .f01-ground {
+      position: absolute;
+      inset: 0;
+      background: #080b0f;
+    }
+
+    /* The 2 a.m. phone: a cold pool of light with no source in frame. */
+    .f01-glow {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 1500px;
+      height: 1500px;
+      margin-left: -750px;
+      margin-top: -750px;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(159, 180, 200, 0.1) 0%,
+        rgba(159, 180, 200, 0.062) 26%,
+        rgba(140, 160, 182, 0.026) 46%,
+        rgba(120, 140, 165, 0.008) 63%,
+        rgba(8, 11, 20, 0) 76%
+      );
+    }
+
+    /* Crushes the corners so the light never reads as a lit room. */
+    .f01-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 76% 58% at 50% 46%,
+        rgba(8, 11, 20, 0) 40%,
+        rgba(8, 11, 20, 0.55) 76%,
+        rgba(8, 11, 20, 0.94) 100%
+      );
+    }
+
+    .f01-caption {
+      position: absolute;
+      left: 90px;
+      top: 700px;
+      width: 900px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 92px;
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      color: #f2eee6;
+      text-transform: lowercase;
+    }
+
+    .f01-rule {
+      position: absolute;
+      left: 90px;
+      top: 1560px;
+      height: 1px;
+      width: 900px;
+      transform-origin: 0 50%;
+      background: #d98324;
+    }
+  </style>
+
+  <div id="root" data-composition-id="01-you-meant-it" data-start="0" data-duration="2" data-width="1080" data-height="1920">
+    <div class="clip f01-ground" id="f01-ground" data-start="0" data-duration="2" data-track-index="0"></div>
+    <div class="clip f01-glow" id="f01-glow" data-layout-allow-overflow data-start="0" data-duration="2" data-track-index="1"></div>
+    <div class="clip f01-vignette" id="f01-vignette" data-start="0" data-duration="2" data-track-index="2"></div>
+
+    <div class="clip f01-caption" id="f01-caption" data-start="0" data-duration="2" data-track-index="3">
+      You meant it this morning.
+    </div>
+
+    <div class="clip f01-rule" id="f01-rule" data-start="0" data-duration="2" data-track-index="4"></div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.35s) — ground is already lit at t=0; a fade-up would
+      // spend the hook window. ambient-glow-bloom: bounded breathe, authored as
+      // finite tweens (no repeat/yoyo — the renderer seeks frame by frame).
+      gsap.set("#f01-glow", { opacity: 0.55 });
+      gsap.set("#f01-rule", { scaleX: 0.18, opacity: 0.55 });
+
+      tl.to("#f01-glow", { opacity: 0.62, duration: 1.15, ease: "sine.inOut" }, 0);
+      tl.to("#f01-glow", { opacity: 0.585, duration: 0.85, ease: "sine.inOut" }, 1.15);
+
+      // Scene 2 (0.35-0.9s) — kinetic-beat-slam. One unit, not word-by-word.
+      tl.fromTo(
+        "#f01-caption",
+        { y: 24, opacity: 0, scale: 1.04 },
+        { y: 0, opacity: 1, scale: 1, duration: 0.28, ease: "power4.out" },
+        0.35
+      );
+
+      // Scene 3 (0.9-2.0s) — hold. Only the hairline creeps, 18% -> 24%.
+      tl.to("#f01-rule", { scaleX: 0.24, duration: 1.1, ease: "power1.inOut" }, 0.9);
+
+      window.__timelines["01-you-meant-it"] = tl;
+    })();
+  </script>
+</template>

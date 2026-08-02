@@ -1,0 +1,11 @@
+{
+  "provider": "auto",
+  "speed": 1,
+  "lines": [],
+  "bgm": {
+    "mode": "retrieve",
+    "query": "tense ambient pulse, low and unresolved, resolving to a hopeful major swell at 9s",
+    "blob": "It's not a willpower problem — it's a wiring problem, and wiring can be rewired",
+    "arc": "Recognition → Agitation → Reframe → Break → Relief → Offer"
+  }
+}

@@ -1,0 +1,288 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 800;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-800.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-900.woff2") format("woff2");
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    .f04-ground { position: absolute; inset: 0; background: #080b0f; }
+
+    .f04-stone {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 42% 40%, rgba(78, 92, 108, 0.16) 0%, rgba(8, 11, 20, 0) 70%),
+        radial-gradient(ellipse 50% 40% at 70% 66%, rgba(52, 64, 78, 0.1) 0%, rgba(8, 11, 20, 0) 72%),
+        #080b0f;
+    }
+
+    .f04-chainwrap { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .f04-svg { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+
+    /* Hottest value in the video. Nothing later is allowed to be brighter. */
+    .f04-core {
+      position: absolute;
+      left: 540px;
+      top: 960px;
+      width: 900px;
+      height: 900px;
+      margin-left: -450px;
+      margin-top: -450px;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 250, 236, 0.98) 0%,
+        rgba(232, 162, 61, 0.86) 9%,
+        rgba(217, 131, 36, 0.52) 20%,
+        rgba(217, 131, 36, 0.16) 36%,
+        rgba(217, 131, 36, 0) 62%
+      );
+    }
+
+    .f04-spark {
+      position: absolute;
+      left: 540px;
+      top: 960px;
+      border-radius: 50%;
+      background: #ffeccd;
+      box-shadow: 0 0 12px rgba(232, 162, 61, 0.85);
+    }
+
+    .f04-flash { position: absolute; inset: 0; background: #fff8ea; }
+
+    .f04-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 72% 50% at 50% 50%,
+        rgba(8, 11, 20, 0) 40%,
+        rgba(8, 11, 20, 0.5) 76%,
+        rgba(8, 11, 20, 0.96) 100%
+      );
+    }
+
+    .f04-cap {
+      position: absolute;
+      left: 90px;
+      width: 900px;
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: lowercase;
+    }
+
+    /* Straddle the break so the burst is never covered. */
+    #f04-cap1 {
+      top: 600px;
+      font-weight: 800;
+      font-size: 58px;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: #f2eee6;
+    }
+
+    /* The promise, in the hottest colour, at the hottest moment. */
+    #f04-cap2 {
+      top: 1180px;
+      font-weight: 900;
+      font-size: 69px;
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      color: #e8a23d;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-break" data-start="0" data-duration="3.5" data-width="1080" data-height="1920">
+    <div class="clip f04-ground" id="f04-ground" data-start="0" data-duration="3.5" data-track-index="0"></div>
+    <div class="clip f04-stone" id="f04-stone" data-start="0" data-duration="3.5" data-track-index="1"></div>
+
+    <div class="clip f04-chainwrap" id="f04-chainwrap" data-layout-allow-overflow data-start="0" data-duration="3.5" data-track-index="2">
+      <svg class="f04-svg" id="f04-svg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="f04-iron" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8A97A6" />
+            <stop offset="28%" stop-color="#4A5563" />
+            <stop offset="62%" stop-color="#252D38" />
+            <stop offset="100%" stop-color="#141A22" />
+          </linearGradient>
+        </defs>
+        <g id="f04-links" data-layout-allow-overflow></g>
+        <!-- The centre link, already two halves — joined until 0.18s. -->
+        <!-- The static placement lives on an OUTER <g>; GSAP animates the inner
+             one. Animating a transform prop on an element that already carries a
+             transform attribute makes GSAP overwrite the whole attribute, which
+             drops the translate and flings the half-link to the SVG origin. -->
+        <g transform="translate(540,960) rotate(28)">
+          <g id="f04-halfA" data-layout-allow-overflow>
+            <path d="M -21 0 L -21 -16 A 21 21 0 0 1 21 -16 L 21 0"
+                  fill="none" stroke="url(#f04-iron)" stroke-width="11" stroke-linecap="round" />
+          </g>
+        </g>
+        <g transform="translate(540,960) rotate(28)">
+          <g id="f04-halfB" data-layout-allow-overflow>
+            <path d="M -21 0 L -21 16 A 21 21 0 0 0 21 16 L 21 0"
+                  fill="none" stroke="url(#f04-iron)" stroke-width="11" stroke-linecap="round" />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="clip f04-core" id="f04-core" data-start="0" data-duration="3.5" data-track-index="3"></div>
+    <div class="clip" id="f04-sparks" data-start="0" data-duration="3.5" data-track-index="4"
+         style="position:absolute; inset:0;"></div>
+    <div class="clip f04-flash" id="f04-flash" data-start="0" data-duration="3.5" data-track-index="5"></div>
+    <div class="clip f04-vignette" id="f04-vignette" data-start="0" data-duration="3.5" data-track-index="6"></div>
+
+    <div class="clip f04-cap" id="f04-cap1" data-start="0" data-duration="3.5" data-track-index="7">
+      It's a wiring problem.
+    </div>
+    <div class="clip f04-cap" id="f04-cap2" data-start="0" data-duration="3.5" data-track-index="8">
+      And wiring can be rewired.
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var NS = "http://www.w3.org/2000/svg";
+      var CX = 540, CY = 960;
+      var RAYS = [90, 270, 28, 152, 208, 332];
+      var STEP = 58, COUNT = 22;
+
+      // Identical geometry to frame 03 — the chain must not jump across the cut.
+      var g = document.getElementById("f04-links");
+      if (g) {
+        for (var r = 0; r < RAYS.length; r++) {
+          var a = (RAYS[r] * Math.PI) / 180;
+          var dx = Math.cos(a), dy = -Math.sin(a);
+          for (var i = 1; i <= COUNT; i++) {
+            var d = i * STEP;
+            var edgeOn = i % 2 === 1;
+            var w = edgeOn ? 17 : 42;
+            var rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", String(-w / 2));
+            rect.setAttribute("y", "-37");
+            rect.setAttribute("width", String(w));
+            rect.setAttribute("height", "74");
+            rect.setAttribute("rx", String(w / 2));
+            rect.setAttribute("ry", String(w / 2));
+            rect.setAttribute("fill", "none");
+            rect.setAttribute("stroke", "url(#f04-iron)");
+            rect.setAttribute("stroke-width", edgeOn ? "8" : "10");
+            var falloff = 1 - Math.min(1, (d - STEP) / 1180) * 0.62;
+            rect.setAttribute("opacity", falloff.toFixed(3));
+            rect.setAttribute(
+              "transform",
+              "translate(" + (CX + dx * d).toFixed(2) + "," + (CY + dy * d).toFixed(2) +
+                ") rotate(" + (90 - RAYS[r]).toFixed(2) + ")"
+            );
+            g.appendChild(rect);
+          }
+        }
+      }
+
+      // 34 sparks thrown along the established geometry, so the energy travels
+      // the shape we already taught the viewer. Deterministic pseudo-random.
+      function rnd(i) { var v = Math.sin(i * 12.9898) * 43758.5453; return v - Math.floor(v); }
+      var host = document.getElementById("f04-sparks");
+      var sparks = [];
+      if (host) {
+        for (var s = 0; s < 34; s++) {
+          var ray = RAYS[s % RAYS.length];
+          var jitter = (rnd(s) - 0.5) * 34;          // spread around the run
+          var ang = ((ray + jitter) * Math.PI) / 180;
+          var dist = 190 + rnd(s + 100) * 520;
+          var size = 3 + rnd(s + 200) * 7;
+          var el = document.createElement("div");
+          el.className = "f04-spark";
+          el.style.width = size.toFixed(1) + "px";
+          el.style.height = size.toFixed(1) + "px";
+          el.style.marginLeft = (-size / 2).toFixed(1) + "px";
+          el.style.marginTop = (-size / 2).toFixed(1) + "px";
+          host.appendChild(el);
+          sparks.push({
+            el: el,
+            x: Math.cos(ang) * dist,
+            y: -Math.sin(ang) * dist,
+            drop: 60 + rnd(s + 300) * 190,          // gravity weighting
+            delay: rnd(s + 400) * 0.09,
+            dur: 0.55 + rnd(s + 500) * 0.7
+          });
+        }
+      }
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // handoff_in — inherits frame 03's exact end state: scale 1.18, unbroken.
+      gsap.set("#f04-chainwrap", { scale: 1.18 });
+      gsap.set("#f04-core", { scale: 0, opacity: 0 });
+      gsap.set("#f04-flash", { opacity: 0 });
+      gsap.set(["#f04-cap1", "#f04-cap2"], { opacity: 0 });
+      gsap.set(sparks.map(function (p) { return p.el; }), { opacity: 0 });
+
+      // Scene 1 (0.0-0.18s) — the chain holds under load. This micro-hold is
+      // what makes the snap feel violent.
+      tl.to("#f04-chainwrap", { scale: 1.205, duration: 0.18, ease: "power2.out" }, 0);
+
+      // Scene 2 (0.18-0.45s) — SNAP.
+      // Origin 0,0 is the link centre in the inner group's local space — the
+      // bbox centre of a half-arc would pivot off-axis.
+      gsap.set(["#f04-halfA", "#f04-halfB"], { transformOrigin: "0px 0px" });
+      tl.to("#f04-halfA", { x: -22, y: -9, rotation: -14, duration: 0.14, ease: "power4.out" }, 0.18);
+      tl.to("#f04-halfB", { x: 22, y: 9, rotation: 14, duration: 0.14, ease: "power4.out" }, 0.18);
+
+      // center-outward-expansion — the core detonates.
+      tl.fromTo("#f04-core",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.26, ease: "power3.out" }, 0.18);
+
+      // kinetic-beat-slam — one-frame flash sells the impact.
+      tl.to("#f04-flash", { opacity: 0.18, duration: 0.033, ease: "none" }, 0.18);
+      tl.to("#f04-flash", { opacity: 0, duration: 0.14, ease: "power2.out" }, 0.213);
+
+      // particle-burst — sparks arc out along the runs and fall.
+      sparks.forEach(function (p) {
+        tl.set(p.el, { opacity: 1 }, 0.18 + p.delay);
+        tl.fromTo(p.el,
+          { x: 0, y: 0, scale: 1 },
+          { x: p.x, y: p.y + p.drop, scale: 0.2, opacity: 0, duration: p.dur, ease: "power2.out" },
+          0.18 + p.delay);
+      });
+
+      // Scene 3 (0.45-1.4s) — core contracts, the frame breathes back.
+      tl.to("#f04-core", { scale: 0.55, opacity: 0.72, duration: 0.95, ease: "power2.out" }, 0.45);
+      // sine-wave-loop — the halves settle, still swinging, authored finite.
+      tl.to("#f04-halfA", { rotation: -11.5, duration: 0.5, ease: "sine.inOut" }, 0.45);
+      tl.to("#f04-halfA", { rotation: -13, duration: 0.5, ease: "sine.inOut" }, 0.95);
+      tl.to("#f04-halfB", { rotation: 11.5, duration: 0.5, ease: "sine.inOut" }, 0.45);
+      tl.to("#f04-halfB", { rotation: 13, duration: 0.5, ease: "sine.inOut" }, 0.95);
+
+      // Scene 4 (1.4-3.0s) — the reframe lands in two beats.
+      // discrete-text-sequence, then kinetic-beat-slam on the payoff.
+      tl.set("#f04-cap1", { opacity: 1 }, 1.4);
+      tl.fromTo("#f04-cap2",
+        { opacity: 0, y: 20, scale: 1.05 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power4.out" }, 2.0);
+
+      // handoff_out — core lands at scale 0.4 / opacity 0.5, cooling.
+      tl.to("#f04-core", { scale: 0.4, opacity: 0.5, duration: 0.6, ease: "sine.inOut" }, 2.4);
+
+      window.__timelines["04-break"] = tl;
+    })();
+  </script>
+</template>

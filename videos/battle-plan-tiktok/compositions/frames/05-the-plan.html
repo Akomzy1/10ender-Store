@@ -1,0 +1,220 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-900.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 500;
+      font-display: block;
+      src: url("assets/fonts/barlow-500.woff2") format("woff2");
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    .f05-ground { position: absolute; inset: 0; background: #080b0f; }
+
+    /* The ember core from frame 04, still present — it becomes the dawn
+       rather than cutting to one. */
+    .f05-core {
+      position: absolute;
+      left: 540px;
+      top: 960px;
+      width: 900px;
+      height: 900px;
+      margin-left: -450px;
+      margin-top: -450px;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 250, 236, 0.9) 0%,
+        rgba(232, 162, 61, 0.8) 10%,
+        rgba(217, 131, 36, 0.45) 24%,
+        rgba(217, 131, 36, 0) 60%
+      );
+    }
+
+    /* First warm ground in the video. Top-weighted, like light coming in. */
+    .f05-dawn {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(232, 162, 61, 0.30) 0%,
+        rgba(217, 131, 36, 0.16) 22%,
+        rgba(120, 92, 58, 0.07) 44%,
+        rgba(8, 11, 20, 0) 68%
+      );
+    }
+
+    .f05-head {
+      position: absolute;
+      left: 90px;
+      top: 470px;
+      width: 900px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 78px;
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      color: #f2eee6;
+      text-transform: lowercase;
+    }
+
+    .f05-item {
+      position: absolute;
+      left: 128px;
+      width: 862px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 500;
+      font-size: 37px;
+      line-height: 1.25;
+      letter-spacing: 0.005em;
+      color: #f2eee6;
+    }
+
+    /* The preset's "/" bullet, restyled as a 1px rule. */
+    .f05-tick {
+      position: absolute;
+      left: 90px;
+      width: 22px;
+      height: 1px;
+      background: #d98324;
+    }
+
+    #f05-i1 { top: 800px; }  #f05-t1 { top: 823px; }
+    #f05-i2 { top: 895px; }  #f05-t2 { top: 918px; }
+    /* The emotional differentiator — the thing they are actually buying. */
+    #f05-i3 { top: 990px; color: #d98324; }
+    #f05-t3 { top: 1013px; }
+
+    .f05-chain { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+  </style>
+
+  <div id="root" data-composition-id="05-the-plan" data-start="0" data-duration="5" data-width="1080" data-height="1920">
+    <div class="clip f05-ground" id="f05-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+    <div class="clip f05-core" id="f05-core" data-start="0" data-duration="5" data-track-index="1"></div>
+    <div class="clip f05-dawn" id="f05-dawn" data-start="0" data-duration="5" data-track-index="2"></div>
+
+    <svg class="clip f05-chain" id="f05-chain" viewBox="0 0 1080 1920"
+         xmlns="http://www.w3.org/2000/svg" data-start="0" data-duration="5" data-track-index="3">
+      <defs>
+        <linearGradient id="f05-iron" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6E7A88" />
+          <stop offset="60%" stop-color="#2A323C" />
+          <stop offset="100%" stop-color="#141A22" />
+        </linearGradient>
+      </defs>
+      <g id="f05-links"></g>
+    </svg>
+
+    <div class="clip f05-head" id="f05-head" data-start="0" data-duration="5" data-track-index="4">
+      A 90-day plan.
+    </div>
+
+    <div class="clip f05-tick" id="f05-t1" data-start="0" data-duration="5" data-track-index="5"></div>
+    <div class="clip f05-item" id="f05-i1" data-start="0" data-duration="5" data-track-index="6">Brain science</div>
+
+    <div class="clip f05-tick" id="f05-t2" data-start="0" data-duration="5" data-track-index="7"></div>
+    <div class="clip f05-item" id="f05-i2" data-start="0" data-duration="5" data-track-index="8">Real tools</div>
+
+    <div class="clip f05-tick" id="f05-t3" data-start="0" data-duration="5" data-track-index="9"></div>
+    <div class="clip f05-item" id="f05-i3" data-start="0" data-duration="5" data-track-index="10">Grace instead of shame</div>
+  </div>
+
+  <script>
+    (function () {
+      var NS = "http://www.w3.org/2000/svg";
+
+      // Quiet evidence in the lower third: the same chain, now broken and
+      // slack. Not a callback gag — it sits at 8%.
+      var g = document.getElementById("f05-links");
+      if (g) {
+        var runs = [
+          { x0: 60,   y0: 1620, dx: 1,  dy: -0.30, n: 9,  gap: false },
+          { x0: 1020, y0: 1620, dx: -1, dy: -0.30, n: 9,  gap: false }
+        ];
+        for (var r = 0; r < runs.length; r++) {
+          var run = runs[r];
+          var len = Math.sqrt(run.dx * run.dx + run.dy * run.dy);
+          var ux = run.dx / len, uy = run.dy / len;
+          var ang = (Math.atan2(uy, ux) * 180) / Math.PI;
+          for (var i = 0; i < run.n; i++) {
+            var d = i * 56;
+            var edgeOn = i % 2 === 1;
+            var w = edgeOn ? 15 : 38;
+            var rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", String(-w / 2));
+            rect.setAttribute("y", "-33");
+            rect.setAttribute("width", String(w));
+            rect.setAttribute("height", "66");
+            rect.setAttribute("rx", String(w / 2));
+            rect.setAttribute("ry", String(w / 2));
+            rect.setAttribute("fill", "none");
+            rect.setAttribute("stroke", "url(#f05-iron)");
+            rect.setAttribute("stroke-width", edgeOn ? "7" : "9");
+            rect.setAttribute(
+              "transform",
+              "translate(" + (run.x0 + ux * d).toFixed(2) + "," + (run.y0 + uy * d).toFixed(2) +
+                ") rotate(" + (ang + 90).toFixed(2) + ")"
+            );
+            g.appendChild(rect);
+          }
+        }
+      }
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // handoff_in — the core arrives from frame 04 at exactly scale 0.4 / 0.5.
+      gsap.set("#f05-core", { scale: 0.4, opacity: 0.5 });
+      gsap.set("#f05-dawn", { opacity: 0 });
+      gsap.set("#f05-chain", { opacity: 0 });
+      gsap.set("#f05-head", { opacity: 0 });
+      gsap.set(["#f05-i1", "#f05-i2", "#f05-i3"], { opacity: 0 });
+      gsap.set(["#f05-t1", "#f05-t2", "#f05-t3"], { opacity: 0, scaleX: 0 });
+
+      // Scene 1 (0.0-0.9s) — theme-crossfade-morph. The core expands and
+      // diffuses INTO the dawn; cause and effect carried by one element.
+      tl.to("#f05-core", { scale: 6, opacity: 0.14, duration: 0.9, ease: "power2.inOut" }, 0);
+      tl.to("#f05-dawn", { opacity: 0.82, duration: 0.9, ease: "power2.inOut" }, 0);
+
+      // Scene 2 (0.9-1.7s) — the offer gets its own beat. kinetic-beat-slam.
+      tl.fromTo("#f05-head",
+        { opacity: 0, y: 22, scale: 1.04 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power4.out" }, 0.9);
+
+      // Scene 3 (1.7-3.6s) — waterfall-entry, 0.42s apart.
+      var items = [
+        { i: "#f05-i1", t: "#f05-t1", at: 1.70 },
+        { i: "#f05-i2", t: "#f05-t2", at: 2.12 },
+        { i: "#f05-i3", t: "#f05-t3", at: 2.54 }
+      ];
+      items.forEach(function (row) {
+        tl.fromTo(row.i,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, row.at);
+        tl.fromTo(row.t,
+          { opacity: 0, scaleX: 0 },
+          { opacity: 1, scaleX: 1, duration: 0.3, ease: "power2.out" }, row.at + 0.04);
+      });
+
+      // Scene 4 (3.6-5.0s) — everything holds; the wash brightens very slowly
+      // and the broken chain fades up to 8%. ambient-glow-bloom.
+      tl.to("#f05-dawn", { opacity: 1, duration: 1.4, ease: "sine.inOut" }, 3.6);
+      tl.to("#f05-chain", { opacity: 0.08, duration: 1.1, ease: "sine.out" }, 3.3);
+
+      window.__timelines["05-the-plan"] = tl;
+    })();
+  </script>
+</template>

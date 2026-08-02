@@ -1,0 +1,153 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 700;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-700.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-900.woff2") format("woff2");
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    .f02-ground {
+      position: absolute;
+      inset: 0;
+      background: #080b0f;
+    }
+
+    /* Identical glow to frame 01 — the shot list says "same darkness",
+       so the room must not change. Only the words move. */
+    .f02-glow {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 1500px;
+      height: 1500px;
+      margin-left: -750px;
+      margin-top: -750px;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(159, 180, 200, 0.1) 0%,
+        rgba(159, 180, 200, 0.062) 26%,
+        rgba(140, 160, 182, 0.026) 46%,
+        rgba(120, 140, 165, 0.008) 63%,
+        rgba(8, 11, 20, 0) 76%
+      );
+    }
+
+    .f02-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 76% 58% at 50% 46%,
+        rgba(8, 11, 20, 0) 40%,
+        rgba(8, 11, 20, 0.55) 76%,
+        rgba(8, 11, 20, 0.94) 100%
+      );
+    }
+
+    .f02-line {
+      position: absolute;
+      left: 90px;
+      width: 900px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #f2eee6;
+      text-transform: lowercase;
+    }
+
+    #f02-l1 { top: 620px; }
+    #f02-l2 { top: 740px; }
+
+    /* The verdict. First colour in the video, and the only ember
+       before the break at 9s. */
+    #f02-l3 {
+      top: 920px;
+      font-weight: 900;
+      font-size: 81px;
+      letter-spacing: -0.035em;
+      color: #d98324;
+    }
+
+    .f02-rule {
+      position: absolute;
+      left: 90px;
+      top: 1560px;
+      height: 1px;
+      width: 900px;
+      transform-origin: 0 50%;
+      background: #d98324;
+    }
+  </style>
+
+  <div id="root" data-composition-id="02-here-again" data-start="0" data-duration="3.5" data-width="1080" data-height="1920">
+    <div class="clip f02-ground" id="f02-ground" data-start="0" data-duration="3.5" data-track-index="0"></div>
+    <div class="clip f02-glow" id="f02-glow" data-layout-allow-overflow data-start="0" data-duration="3.5" data-track-index="1"></div>
+    <div class="clip f02-vignette" id="f02-vignette" data-start="0" data-duration="3.5" data-track-index="2"></div>
+
+    <div class="clip f02-line" id="f02-l1" data-start="0" data-duration="3.5" data-track-index="3">
+      You prayed about it.
+    </div>
+    <div class="clip f02-line" id="f02-l2" data-start="0" data-duration="3.5" data-track-index="4">
+      You deleted the apps.
+    </div>
+    <div class="clip f02-line" id="f02-l3" data-start="0" data-duration="3.5" data-track-index="5">
+      You're here again.
+    </div>
+
+    <div class="clip f02-rule" id="f02-rule" data-start="0" data-duration="3.5" data-track-index="6"></div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // handoff_in — glow arrives from frame 01 at exactly 0.62.
+      gsap.set("#f02-glow", { opacity: 0.62 });
+      gsap.set("#f02-rule", { scaleX: 0.24, opacity: 0.55 });
+      gsap.set(["#f02-l1", "#f02-l2", "#f02-l3"], { opacity: 0 });
+
+      // Scene 1 (0.0-0.8s) — discrete-text-sequence: hard cut in, no fade.
+      tl.set("#f02-l1", { opacity: 1 }, 0.02);
+
+      // Scene 2 (0.8-1.6s) — line 2 lands; line 1 recedes into past tense.
+      tl.set("#f02-l2", { opacity: 1 }, 0.8);
+      tl.to("#f02-l1", { opacity: 0.55, duration: 0.18, ease: "none" }, 0.8);
+
+      // Scene 3 (1.6-2.4s) — both recede; the verdict slams in ember.
+      // kinetic-beat-slam.
+      tl.to(["#f02-l1", "#f02-l2"], { opacity: 0.22, duration: 0.2, ease: "none" }, 1.6);
+      tl.fromTo(
+        "#f02-l3",
+        { opacity: 0, scale: 1.06 },
+        { opacity: 1, scale: 1, duration: 0.24, ease: "power4.out" },
+        1.6
+      );
+
+      // Scene 4 (2.4-3.0s) — the room starts going out under the held text.
+      // ambient-glow-bloom, reversed: dim, not bloom. handoff_out = 0.28.
+      tl.to("#f02-glow", { opacity: 0.28, duration: 0.6, ease: "power2.in" }, 2.4);
+      tl.to("#f02-rule", { opacity: 0.28, duration: 0.6, ease: "power2.in" }, 2.4);
+
+      window.__timelines["02-here-again"] = tl;
+    })();
+  </script>
+</template>

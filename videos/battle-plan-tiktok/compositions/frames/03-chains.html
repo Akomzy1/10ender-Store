@@ -1,0 +1,221 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow Condensed";
+      font-style: normal;
+      font-weight: 800;
+      font-display: block;
+      src: url("assets/fonts/barlow-condensed-800.woff2") format("woff2");
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+
+    .f03-ground {
+      position: absolute;
+      inset: 0;
+      background: #080b0f;
+    }
+
+    /* Stone behind the chains — barely there, just enough that the
+       links are not floating in void. */
+    .f03-stone {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 42% 40%, rgba(78, 92, 108, 0.16) 0%, rgba(8, 11, 20, 0) 70%),
+        radial-gradient(ellipse 50% 40% at 70% 66%, rgba(52, 64, 78, 0.1) 0%, rgba(8, 11, 20, 0) 72%),
+        #080b0f;
+    }
+
+    .f03-chainwrap {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 50%;
+    }
+
+    .f03-svg {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+
+    /* The seed the burst in frame 04 grows from. Barely conscious. */
+    .f03-glint {
+      position: absolute;
+      left: 540px;
+      top: 960px;
+      width: 220px;
+      height: 220px;
+      margin-left: -110px;
+      margin-top: -110px;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(232, 162, 61, 0.9) 0%,
+        rgba(217, 131, 36, 0.42) 22%,
+        rgba(217, 131, 36, 0) 62%
+      );
+    }
+
+    .f03-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 66% 46% at 50% 50%,
+        rgba(8, 11, 20, 0) 34%,
+        rgba(8, 11, 20, 0.62) 72%,
+        rgba(8, 11, 20, 0.98) 100%
+      );
+    }
+
+    /* Sits BELOW the convergence point so it never covers the link
+       that is about to break. */
+    .f03-caption {
+      position: absolute;
+      left: 90px;
+      top: 1306px;
+      width: 900px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      font-size: 73px;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      color: #f2eee6;
+      text-transform: lowercase;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-chains" data-start="0" data-duration="4" data-width="1080" data-height="1920">
+    <div class="clip f03-ground" id="f03-ground" data-start="0" data-duration="4" data-track-index="0"></div>
+    <div class="clip f03-stone" id="f03-stone" data-start="0" data-duration="4" data-track-index="1"></div>
+
+    <div class="clip f03-chainwrap" id="f03-chainwrap" data-layout-allow-overflow data-start="0" data-duration="4" data-track-index="2">
+      <svg class="f03-svg" id="f03-svg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Single raking light from upper-left, per frame.md's low-key rule. -->
+          <linearGradient id="f03-iron" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8A97A6" />
+            <stop offset="28%" stop-color="#4A5563" />
+            <stop offset="62%" stop-color="#252D38" />
+            <stop offset="100%" stop-color="#141A22" />
+          </linearGradient>
+        </defs>
+        <g id="f03-links" data-layout-allow-overflow></g>
+      </svg>
+    </div>
+
+    <div class="clip f03-glint" id="f03-glint" data-start="0" data-duration="4" data-track-index="3"></div>
+    <div class="clip f03-vignette" id="f03-vignette" data-start="0" data-duration="4" data-track-index="4"></div>
+
+    <div class="clip f03-caption" id="f03-caption" data-start="0" data-duration="4" data-track-index="5">
+      It's not a willpower problem.
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var NS = "http://www.w3.org/2000/svg";
+      var CX = 540, CY = 960;
+
+      // Six rays from one convergence point: a vertical run plus two
+      // diagonals, matching the cover. Deterministic — no randomness.
+      var RAYS = [90, 270, 28, 152, 208, 332];
+      var STEP = 58;      // centre-to-centre spacing along a run
+      var COUNT = 22;     // links per ray (overshoots the frame, then is vignetted)
+
+      var g = document.getElementById("f03-links");
+      if (g) {
+        for (var r = 0; r < RAYS.length; r++) {
+          var a = (RAYS[r] * Math.PI) / 180;
+          var dx = Math.cos(a), dy = -Math.sin(a);
+
+          for (var i = 1; i <= COUNT; i++) {
+            var d = i * STEP;
+            var x = CX + dx * d;
+            var y = CY + dy * d;
+
+            // Alternate flat / edge-on links so the run reads as a real chain.
+            var edgeOn = i % 2 === 1;
+            var w = edgeOn ? 17 : 42;
+            var h = 74;
+
+            var rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", String(-w / 2));
+            rect.setAttribute("y", String(-h / 2));
+            rect.setAttribute("width", String(w));
+            rect.setAttribute("height", String(h));
+            rect.setAttribute("rx", String(w / 2));
+            rect.setAttribute("ry", String(w / 2));
+            rect.setAttribute("fill", "none");
+            rect.setAttribute("stroke", "url(#f03-iron)");
+            rect.setAttribute("stroke-width", edgeOn ? "8" : "10");
+
+            // Links fall off toward the frame edge — depth, not fade-out.
+            var falloff = 1 - Math.min(1, (d - STEP) / 1180) * 0.62;
+            rect.setAttribute("opacity", falloff.toFixed(3));
+
+            // Orient the link along its ray.
+            rect.setAttribute(
+              "transform",
+              "translate(" + x.toFixed(2) + "," + y.toFixed(2) + ") rotate(" + (90 - RAYS[r]).toFixed(2) + ")"
+            );
+            g.appendChild(rect);
+          }
+        }
+
+        // The centre link — whole here, the thing that breaks in frame 04.
+        var centre = document.createElementNS(NS, "rect");
+        centre.setAttribute("x", "-21");
+        centre.setAttribute("y", "-37");
+        centre.setAttribute("width", "42");
+        centre.setAttribute("height", "74");
+        centre.setAttribute("rx", "21");
+        centre.setAttribute("ry", "21");
+        centre.setAttribute("fill", "none");
+        centre.setAttribute("stroke", "url(#f03-iron)");
+        centre.setAttribute("stroke-width", "11");
+        centre.setAttribute("transform", "translate(540,960) rotate(28)");
+        g.appendChild(centre);
+      }
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.6s) — crossfade lands. depth-of-field-blur: the eye settles.
+      gsap.set("#f03-chainwrap", { scale: 1.0, opacity: 0.7, filter: "blur(3px)" });
+      gsap.set("#f03-glint", { opacity: 0 });
+      gsap.set("#f03-caption", { opacity: 0 });
+      tl.to("#f03-chainwrap", { filter: "blur(0px)", duration: 0.6, ease: "power2.out" }, 0);
+
+      // Scenes 2+4 (0.6-4.0s) — multi-phase-camera. ONE unbroken push that never
+      // stops; the restraint after frame 02's staccato is what sells the line.
+      tl.to("#f03-chainwrap", { opacity: 1, duration: 1.6, ease: "power1.out" }, 0.6);
+      tl.to("#f03-chainwrap", { scale: 1.1, duration: 1.6, ease: "power1.inOut" }, 0.6);
+      tl.to("#f03-chainwrap", { scale: 1.18, duration: 1.8, ease: "power1.inOut" }, 2.2);
+
+      // Scene 3 (2.2-3.0s) — caption enters low. kinetic-beat-slam.
+      tl.fromTo(
+        "#f03-caption",
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" },
+        2.2
+      );
+
+      // Scene 4 (3.6s) — the first hint of heat. ambient-glow-bloom, barely on.
+      tl.fromTo(
+        "#f03-glint",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 0.26, scale: 1, duration: 0.4, ease: "sine.out" },
+        3.6
+      );
+
+      window.__timelines["03-chains"] = tl;
+    })();
+  </script>
+</template>
